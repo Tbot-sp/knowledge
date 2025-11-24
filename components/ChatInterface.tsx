@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { KnowledgeItem, ChatMessage } from '../types';
-import { answerQuestion } from '../services/gemini';
+import { answerQuestion } from '../services/doubao';
 
 interface ChatInterfaceProps {
   items: KnowledgeItem[];
@@ -59,7 +59,13 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({ items }) => {
         };
         setMessages(prev => [...prev, botMsg]);
     } catch (err) {
-        // Error handling
+        const botMsg: ChatMessage = {
+          id: (Date.now() + 2).toString(),
+          role: 'model',
+          text: typeof err === 'string' ? err : '调用豆包接口失败，请检查 API Key、模型名或网络代理设置。',
+          timestamp: Date.now()
+        };
+        setMessages(prev => [...prev, botMsg]);
     } finally {
         setIsLoading(false);
     }

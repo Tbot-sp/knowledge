@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ItemType, KnowledgeItem } from '../types';
-import { analyzeContent } from '../services/gemini';
+import { analyzeContent } from '../services/doubao';
 import { v4 as uuidv4 } from 'uuid'; // Use simple random string if uuid not avail, but custom logic below
 
 const generateId = () => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);

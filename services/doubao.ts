@@ -2,7 +2,7 @@ import { KnowledgeItem } from "../types";
 
 const apiKey = '7d056446-7f16-4a89-a5e6-c81a2e286c15';
 const model = 'doubao-lite-32k-character-250228';
-const endpoint = '/doubao/chat/completions';
+const endpoint = import.meta.env.MODE === 'development' ? '/doubao/chat/completions' : 'https://ark.cn-beijing.volces.com/api/v3/chat/completions';
 
 const cleanJson = (text: string) => {
   return text.replace(/```json/g, '').replace(/```/g, '').trim();

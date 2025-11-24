@@ -9,7 +9,7 @@ interface ChatInterfaceProps {
 const ChatInterface: React.FC<ChatInterfaceProps> = ({ items }) => {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
-      id: 'welcome',
+      id: 'welcom',
       role: 'model',
       text: `Hello! I'm Orbit. I can answer questions based on the ${items.length} knowledge nodes you've created. What would you like to know?`,
       timestamp: Date.now()
